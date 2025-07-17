@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chlothzy - Product Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background-color 0.3s ease;
+    }
+
+    .container {
+      text-align: center;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .mode-toggle {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 20px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .cart-counter {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .product-image-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #09831b;
+      color: white;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      border-radius: 10px;
+    }
+
+    .product-details {
+      padding: 20px;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      color: #222;
+      font-weight: 1000 px;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      color: #196d33;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .add-to-cart-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #1904bc;
+      color: white;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #e71741;
+    }
+
+    
+    body.dark {
+      background-color: #121212;
+    }
+
+    body.dark .product-card {
+      background-color: #1f1f1f;
+    }
+
+    body.dark .product-title,
+    body.dark .product-price,
+    body.dark .cart-counter {
+      color: #f0f0f0;
+    }
+
+    @media (max-width: 400px) {
+      .product-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="mode-toggle" onclick="toggleMode()">Toggle Mode</button>
+    <div class="cart-counter" id="cartCount">Cart: 0 item(s)</div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-image-container">
+      <img src="OIP.webp" 
+           alt="Blue Denim Jacket" class="product-image">
+      <div class="discount-badge">20-40% OFF</div>
+    </div>
+    <div class="product-details">
+      <div class="product-title">Blue Denim Jacket</div>
+      <div class="product-price">₹1,499</div>
+      <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart() {
+      cartCount++;
+      alert("Blue Denim Jacket added to cart!");
+      document.getElementById("cartCount").innerText = `Cart: ${cartCount} item(s)`;
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
